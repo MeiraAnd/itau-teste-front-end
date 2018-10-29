@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 
 import api from '../../Services/api';
 import Content from '../../Components/Content/index';
+import Repositories from '../../Components/Repositories/index';
 
-import { Form } from './style';
+import { Form, Repo } from './style';
 
 class Header extends Component {
 
     state = {
         UsersInput: '',
         users: [],
+
+        repositoryId: '',
+        repositories: [],
     };
 
     handleUsers = async (e) =>{
@@ -37,6 +41,25 @@ class Header extends Component {
         }
     };
 
+    handleRepository = async (e) =>{
+        e.preventDefault();
+    
+        try{
+            const response = await api.get(`/users/${this.state.gitHubId}/repos`)
+
+            this.setState({
+                UsersInput: '',
+                repositories: response.data
+                //gitHubOwner: response.data.owner
+            });
+
+            console.log(response);
+            } catch (err){
+            console.log(err);
+    
+        }
+    };
+
 
     render() {
         return (
@@ -54,6 +77,13 @@ class Header extends Component {
                 </Form>
 
                 <Content users={this.state.users} />
+
+                <Repo>  
+                    <section>                                              
+                        <button onClick={this.handleRepository}>Repos</button>
+                        <Repositories repositories={this.state.repositories}  />                         
+                    </section>         
+                </Repo>
                 
             </div>
         );

@@ -9,7 +9,7 @@ export const Form = styled.div`
         max-width: 80%;
         height: 100%;
         margin: 0 auto;
-        }
+    }
 
     form{
         width: 100%;
@@ -31,6 +31,40 @@ export const Form = styled.div`
             cursor: pointer;
         }
     }
-
     
+`; 
+
+export const Repo = styled.div`
+    button{
+        width: 120px;
+        height: 35px;
+        border: 0;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin: 30px 15px 30px 0;
+        cursor: pointer;
+    }
+
+    ul{
+        list-style: none;
+
+        li{
+            font-size: 14px;
+            color: #000;
+            line-height: 20px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+            button{
+                width: 100%;
+                margin: 30px 0 50px 0;
+            }
+       
+    }
 `; 
