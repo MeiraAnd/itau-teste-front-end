@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import api from '../../Services/api';
+import Content from '../../Components/Content/index';
 
 import { Form } from './style';
 
@@ -51,6 +52,8 @@ class Header extends Component {
                         </form> 
                     </section> 
                 </Form>
+
+                <Content users={this.state.users} />
                 
             </div>
         );
