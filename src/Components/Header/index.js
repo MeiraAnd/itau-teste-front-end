@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import api from '../../Services/api';
 import Content from '../../Components/Content/index';
 import Repositories from '../../Components/Repositories/index';
+import Starred from '../../Components/Starred/index';
 
-import { Form, Repo } from './style';
+import { Form, Repo, Star } from './style';
 
 class Header extends Component {
 
@@ -14,6 +15,7 @@ class Header extends Component {
 
         repositoryId: '',
         repositories: [],
+        starreds: []
     };
 
     handleUsers = async (e) =>{
@@ -60,6 +62,25 @@ class Header extends Component {
         }
     };
 
+    handleStarred = async (e) =>{
+        e.preventDefault();
+    
+        try{
+            const response = await api.get(`/users/${this.state.gitHubId}/starred`)
+
+            this.setState({
+                UsersInput: '',
+                starreds: response.data
+                //gitHubOwner: response.data.owner
+            });
+
+            console.log(response);
+            } catch (err){
+            console.log(err);
+    
+        }
+    };
+
 
     render() {
         return (
@@ -84,6 +105,13 @@ class Header extends Component {
                         <Repositories repositories={this.state.repositories}  />                         
                     </section>         
                 </Repo>
+
+                <Star>  
+                    <section>                                              
+                        <button onClick={this.handleStarred}>Starred</button>
+                        <Starred starreds={this.state.starreds}  />                         
+                    </section>         
+                </Star>
                 
             </div>
         );
