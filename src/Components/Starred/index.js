@@ -5,11 +5,12 @@ import { Content } from './style';
 class ContentButtonStarred extends Component{
     
      render(){
+
         return(
         
             <Content>
                 { 
-                    this.props.starreds.map(starred => 
+                    this.props.starreds.map(starred => (
                         <div key={starred.id}>
                             <div className="boxContent">
                                 <h2>{starred.name}</h2>
@@ -27,8 +28,9 @@ class ContentButtonStarred extends Component{
                                 <p>{starred.owner.type}</p>
                             </div>
                         </div>
-                    )
+                    ))
                 }
+
             </Content>
             
         ); 

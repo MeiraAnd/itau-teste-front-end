@@ -79,6 +79,25 @@ class Header extends Component {
         }
     };
 
+    handleStarred = async (e) =>{
+        e.preventDefault();
+    
+        try{
+            const response = await api.get(`/users/${this.state.gitHubId}/starred`)
+
+            this.setState({
+                UsersInput: '',
+                starreds: response.data
+                //gitHubOwner: response.data.owner
+            });
+
+            console.log(response);
+            } catch (err){
+            console.log(err);
+    
+        }
+    };
+
 
     render() {
         return (
