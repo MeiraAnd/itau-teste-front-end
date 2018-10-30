@@ -1,8 +1,12 @@
 import React from 'react';
+import Routes from './routes';
+
 import './Styles/global';
 
-import Main from './Pages/main/index';
-
-const App = () => <Main/>;
-
-export default App;
+export default class App extends React.Component{
+    render() {
+        return(
+            <Routes/>
+        );
+    }
+}

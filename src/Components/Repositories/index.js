@@ -5,12 +5,12 @@ import { Content } from './style';
 class ContentButtons extends Component{
     
      render(){
-        //console.log('teste,' , this.props.repositories);
+
         return(
         
             <Content>
                 { 
-                    this.props.repositories.map(repository => 
+                    this.props.repositories.map(repository => (
                         <div key={repository.id}>
                             <div className="boxContent">
                                 <h2>{repository.name}</h2>
@@ -28,10 +28,8 @@ class ContentButtons extends Component{
                                 <p>{repository.owner.type}</p>
                             </div>
                         </div>
-                    )
-                }
-                
-            
+                    ))
+                }             
             </Content>
             
         ); 

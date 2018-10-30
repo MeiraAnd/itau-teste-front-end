@@ -5,7 +5,6 @@ import { Content } from './style';
 class ContentButtonStarred extends Component{
     
      render(){
-        //console.log('teste,' , this.props.starreds);
         return(
         
             <Content>
@@ -30,8 +29,6 @@ class ContentButtonStarred extends Component{
                         </div>
                     )
                 }
-                
-            
             </Content>
             
         ); 

@@ -5,6 +5,11 @@ export const Container = styled.div`
     .boxInfos{
         display: flex;
         flex-wrap: wrap;
+
+        a{
+            text-decoration: none;
+            color: #000;
+        }
     
         .infosUser{
             display: flex;
@@ -16,8 +21,6 @@ export const Container = styled.div`
                 height: 150px;
                 display: flex;
                 align-items: center;
-                
-                background-color: #ccc;
 
                 img{
                     width: 100%;
@@ -43,10 +46,6 @@ export const Container = styled.div`
                 }
             }
         }
-    }
-
-    @media screen and (max-width: 768px) {
-        
     }
 `;
 

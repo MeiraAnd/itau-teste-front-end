@@ -24,21 +24,21 @@ class Header extends Component {
         const { users } = this.state;
     
         try{
-          const response = await api.get(`/users/${this.state.UsersInput}`);
+            const response = await api.get(`/users/${this.state.UsersInput}`);
 
-          // Não permite usuários duplicados
+            // Não permite usuários duplicados
             if (users.find(user => user.id === response.data.id)) return false;
 
     
-          this.setState({
-            UsersInput: '',
-            users: [ ...this.state.users, response.data],
-            gitHubId: response.data.login
-          });
+            this.setState({
+                UsersInput: '',
+                users: [ ...this.state.users, response.data],
+                gitHubId: response.data.login
+            });
     
-          console.log(response);
-        } catch (err){
-          console.log(err);
+            console.log(response);
+            } catch (err){
+            console.log(err);
     
         }
     };
@@ -52,7 +52,6 @@ class Header extends Component {
             this.setState({
                 UsersInput: '',
                 repositories: response.data
-                //gitHubOwner: response.data.owner
             });
 
             console.log(response);
@@ -71,7 +70,6 @@ class Header extends Component {
             this.setState({
                 UsersInput: '',
                 starreds: response.data
-                //gitHubOwner: response.data.owner
             });
 
             console.log(response);
